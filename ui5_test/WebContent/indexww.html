@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8">
+
+    <title>UI5 Boilerplate</title>
+
+    <!-- UI5 Bootstrap with OpenUI5 https://sapui5.hana.ondemand.com/resources/sap-ui-core.js -->
+    <script id="sap-ui-bootstrap" type="text/javascript" 
+
+src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" 
+    	data-sap-ui-theme="sap_bluecrystal" 
+    	data-sap-ui-xx-bindingSyntax="complex" 
+    	data-sap-ui-libs="sap.m"
+        data-sap-ui-resourceroots='{
+            "ui5TileTrial": "./"
+        }'>       
+    	//src="https://sapui5.hana.ondemand.com/resources/sap-ui-core.js" 
+    </script>
+        <script src="datajs-1.1.2.js"></script>
+        <script>
+        //var serviceRoot = 'http://120.27.144.171:8080/Odata/Cloud_Hr.svc/';
+        var serviceRoot = "http://localhost:8080/Odata_Server_V1/Cloud_Hr.svc/Customers('11')";
+    	//var headers = { 'Content-Type': 'application/json', 'Accept': 'application/json' };
+/*     	var request = {
+    	    requestUri: serviceRoot,
+    	    method: 'GET',
+    	    //headers: headers,
+    	    data: null
+    	}; */
+
+        $.ajax({
+            type: "get",
+            dataType: "json",
+            url: "http://localhost:8080/Odata_Server_V1/Cloud_Hr.svc/Customers('11')",
+            success: function (msg) {
+                var str = "";
+                for (i in msg) {
+                    str += "<tr><td>" + msg[i].id + "</td><td>" + msg[i].name + "</td><td>" + msg[i].cla + "</td><td>" + msg[i].sex + "</td><td>" + msg[i].tel + "</td></tr>";
+                }
+                $("tbody").append(str);
+            }
+        });
+
+
+    	
+//     	var Customer = {
+//     		    Customer_id:'99',
+//     		    Customer_name:'999',
+//     		    Customer_status:'9999',
+//     		    Customer_type: '99999'
+//     		};
+		
+//     		var request = {
+//     		    requestUri: 'http://120.27.144.171:8080/Odata/Cloud_Hr.svc/Customer',
+//     		    method: 'POST',
+//     		    headers: headers,
+//     		    data: Customer
+//     		};
+/*          	OData.request(
+             	    request,
+            	    function (data, response) {
+           	    var filtedPeople = data.value;
+           	    var FirstName = filtedPeople[0].FirstName;
+             	    },
+             	    function (err) {
+             	        alert('Fail: ' + err.Message);
+             	    }
+             	); */
+//     		OData.request(
+//     		    request,
+//     		    function (data, response) {
+//     		        var createeRes = response;
+//     		        var qwe = '123';
+//     		    },
+//     		    function (err) {
+//     		        alert('Fail: ' + err.Message);
+//     		    }
+//     		);
+
+    	var request1="asd";
+
+    
+        sap.ui.getCore().attachInit(function() {
+   		 new sap.ui.core.ComponentContainer({
+             name : "ui5TileTrial"
+          }).placeAt("content");
+        });
+        
+    </script>
+</head>
+<body class="sapUiBody" id="content">
+</body>
+<script>
+/* var serviceRoot = 'http://120.27.144.171:8080/Odata/Cloud_Hr.svc/';
+    function jsonpcallback(json) {
+      console.log(json);
+    }
+ 
+    var s = document.createElement('script');
+    s.src = serviceRoot + "Customers('11')";
+    document.body.appendChild(s);
+    var ss ="asd"; */
+</script>
+</html>

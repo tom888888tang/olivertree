@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script src="jquery-2.2.3.min.js"></script>
+        <script src="datajs-1.1.2.js"></script>
+<body>
+<table>
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>name</td>
+            <td>type</td>
+            <td>status</td>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<input id="json" type="button" value="json" />
+<input id="jsonp" type="button" value="jsonp" />
+<input id="login" type="button" value="login" />
+</body>
+
+<script>
+$(function () {
+    $("#json").click(function () {
+    	window.sessionStorage.setItem("user_id", "11");
+    	window.sessionStorage.setItem("password", "11");
+    	var customer =
+    	[{"Customer_id": "99",
+    	        "Customer_name": "99",
+    	        "Customer_status": "99",
+    	        "Customer_type": "99"} ];        	
+    	
+    	//headers = { 'Content-Type': 'application/json' }
+$.ajax({
+    type: "post",
+    dataType: "json",
+    data: customer,
+    //http://120.27.144.171:8080/Odata/Cloud_Hr.svc/Customers
+    //http://localhost:8080/Odata_Server_V1/Cloud_Hr.svc/Customers
+    //window.sessionStorage.setItem("key", "value");
+    url: "http://localhost:8080/Odata_Server_V1/Cloud_Hr.svc/Customers",
+    beforeSend: function(request) {
+        request.setRequestHeader('Content-Type', 'application/json');
+        request.setRequestHeader('Accept','application/json');
+    },
+    success: function (msg) {
+        var str = "<tr><td>" + "json" + "</td></tr>";
+        for (x in msg) {
+        	for (var i=0,len=msg[x].results.length; i<len; i++) {
+
+                str += "<tr><td>" + msg[x].results[i].Customer_id + "</td><td>" +
+                msg[x].results[i].Customer_name + "</td><td>" + msg[x].results[i].Customer_type +
+                  "</td><td>" + msg[x].results[i].Customer_status + "</td></tr>";
+                
+        	}
+   }
+        $("tbody").append(str);
+    }
+});
+    });
+
+    $("#jsonp").click(function () {
+    	var test = window.sessionStorage.getItem("user_id");
+        var serviceRoot = "http://120.27.144.171:8080/Odata/Cloud_Hr.svc/Customers";
+/*         function jsonpcallback(msg) {
+        	var str = "<tr><td>" + "json" + "</td></tr>";
+
+            for (var i=0,len=msg.length; i<len; i++) {
+                str += "<tr><td>" + msg[i].Customer_id + "</td><td>" + msg[i].Customer_name + "</td><td>" + msg[i].Customer_type + "</td><td>" + msg[i].Customer_status + "</td></tr>";
+            }
+        }
+     
+        var s = document.createElement('script');
+        s.src = serviceRoot;
+        document.body.appendChild(s); */
+        //var serviceRoot = 'http://services.odata.org/V4/(S(34wtn2c0hkuk5ekg0pjr513b))/TripPinServiceRW/';
+        var headers = { 'Content-Type': 'application/json', Accept: 'application/json' };
+        var newPerson = 
+        {
+        	    "Customer_id": "198",
+        	    "Customer_name": "99",
+        	    "Customer_status": "99999",
+        	    "Customer_type": "99"
+        	}
+        var request = {
+            requestUri: serviceRoot,
+            method: 'post',
+            headers: headers,
+            data: newPerson
+        };
+
+        OData.request(
+            request,
+            function (data, response) {
+                var createeRes = response;
+            },
+            function (err) {
+                alert('Fail: ' + err.Message);
+            }
+        );
+
+
+        });
+
+    $("#login").click(function () {
+        $.ajax({
+            url: "http://120.27.144.171:8080/Odata/Cloud_Hr.svc/Emp",
+            data: { user_id: "12", password: "12", customer_id: "12"},
+            type: "get",
+            datatype: "json",
+            success: function(data){
+                alert(data.length);
+            }
+        });
+
+        });
+
+    
+});
+
+
+
+
+
+
+</script>
+</html>

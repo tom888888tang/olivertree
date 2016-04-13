@@ -1,0 +1,104 @@
+<core:View xmlns:core="sap.ui.core" xmlns="sap.uxap"
+	xmlns:layout="sap.ui.layout" xmlns:m="sap.m" xmlns:forms="sap.ui.layout.form"
+	xmlns:cblock="ui5TileTrial.controller.controllerblocks" controllerName="ui5TileTrial.controller.ObjectOviewPage"
+	height="100%">
+	<ObjectPageLayout id="ObjectPageLayout"
+		enableLazyLoading="false" showTitleInHeaderContent="true"
+		showEditHeaderButton="true" editHeaderButtonPress="handleEditBtnPress"
+		useTwoColumnsForLargeScreen="true">
+		<headerTitle>
+			<ObjectPageHeader objectImageURI="./img/people/beautifulgirl.png"
+				objectTitle="Denise Smith" objectImageShape="Circle" objectImageAlt="Denise Smith"
+				objectSubtitle="Senior UI Developer" isObjectIconAlwaysVisible="false"
+				isObjectTitleAlwaysVisible="false" isObjectSubtitleAlwaysVisible="false">
+				<actions>
+					<ObjectPageHeaderActionButton icon="sap-icon://pull-down"
+						text="show section" type="Emphasized" />
+					<ObjectPageHeaderActionButton icon="sap-icon://show"
+						text="show state" type="Emphasized" />
+				</actions>
+				<breadCrumbsLinks>
+					<m:Link text="Home" press="handleHomePress" />
+				</breadCrumbsLinks>
+			</ObjectPageHeader>
+		</headerTitle>
+
+		<headerContent>
+			<layout:VerticalLayout>
+				<m:Link text="+33 6 4512 5158" />
+				<m:Link text="DeniseSmith@sap.com" />
+			</layout:VerticalLayout>
+
+			<layout:HorizontalLayout>
+				<m:Image src=""></m:Image>
+				<m:Image src="./test-resources/sap/uxap/images/Twitter.png"></m:Image>
+			</layout:HorizontalLayout>
+
+			<layout:VerticalLayout>
+				<m:Label text="Hello! I am Tim and I use UxAP" />
+				<m:VBox height="63px">
+					<m:Label text="Achieved goals" />
+					<m:ProgressIndicator percentValue="30"
+						displayValue="30%" showValue="true" state="None" />
+				</m:VBox>
+			</layout:VerticalLayout>
+
+			<layout:VerticalLayout>
+				<m:Label text="San Jose, USA" />
+			</layout:VerticalLayout>
+		</headerContent>
+
+		<sections>
+			<ObjectPageSection title="Personal" importance="Medium">
+				<subSections>
+					<ObjectPageSubSection title="">
+						<cblock:PersonalBlock id="personalblock"
+							columnLayout="3" />
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+			<ObjectPageSection title="Empolyment" importance="Medium">
+				<subSections>
+					<ObjectPageSubSection title="">
+						<cblock:JobBlock id="jobblock" columnLayout="2" />
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+			<ObjectPageSection title="Payroll Result"
+				importance="Medium">
+				<subSections>
+					<ObjectPageSubSection title="">
+					<cblock:PayrollBlock id="payrollblock" columnLayout="2" />
+						<!-- <layout:BlockLayout id="BlockLayout"
+							background="{/selectedBackground}">
+							<layout:BlockLayoutRow>
+								<layout:BlockLayoutCell title="75% width cell"
+									width="2">
+									<forms:SimpleForm editable="true">
+										<m:Label text="Name on card" required="true" />
+										<m:Input value="{/CreditCard/Name}" liveChange="checkCreditCardStep"
+											valueLiveUpdate="true" />
+										<m:Label text="Card number" />
+										<m:Input value="{/CardNumber}" />
+										<m:Label text="Security code" />
+										<m:Input value="{/CreditCard/SecurityCode}" />
+										<m:Label text="Expiration date" />
+										<m:DatePicker value="{/CreditCard/Expire}" />
+									</forms:SimpleForm>
+
+								</layout:BlockLayoutCell>
+								<layout:BlockLayoutCell width="2">
+									<m:Text
+										text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr." />
+
+								</layout:BlockLayoutCell>
+							</layout:BlockLayoutRow>
+						</layout:BlockLayout> -->
+					</ObjectPageSubSection>
+				</subSections>
+			</ObjectPageSection>
+
+		</sections>
+	</ObjectPageLayout>
+</core:View>
