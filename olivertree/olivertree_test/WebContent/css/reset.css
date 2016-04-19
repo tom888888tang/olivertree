@@ -1,0 +1,111 @@
+/* HTML5 Reset*/
+
+html { border: 0; margin: 0; padding: 0; }
+html, html body { height: 100%; width: 100%; }
+body { font-size: 100%; }
+body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, caption, tbody, tfoot, thead, article, aside, figure, footer, header, hgroup, menu, nav, section, menu, time, mark, audio, video  { border: 0; margin: 0; padding: 0; font-size: 100%; font: inherit; vertical-align: baseline; }
+article, aside, details, figcaption, figure, dialog, footer, header, hgroup, menu, nav, section { display:block; }
+
+/*-------------------------------------------------------------------------------
+  Image
+-------------------------------------------------------------------------------*/
+
+object, embed {  max-width: 100%; }
+img { height: auto; display: block;  overflow: hidden; }
+
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));} /* prevent BG image flicker upon hover */
+.ie7 img {-ms-interpolation-mode: bicubic;} /* scale images in IE7 more attractively */
+
+.mwidth, .mwidth > img{ max-width:100%; }
+.mheight, .mheight > img{ max-height:100%; }
+
+/*-------------------------------------------------------------------------------
+  Anchor
+-------------------------------------------------------------------------------*/
+
+a { margin: 0; padding: 0; font-size: 100%; vertical-align: baseline; background: transparent; text-decoration: none; }
+a:hover, a:active { outline: none; cursor: pointer; }
+a img { border: none; }
+
+
+/*-------------------------------------------------------------------------------
+  Typography
+-------------------------------------------------------------------------------*/
+
+blockquote:before, blockquote:after, q:before, q:after {  content: ''; }
+blockquote, q { quotes: "" ""; }
+del {text-decoration: line-through;}
+abbr[title], dfn[title] {border-bottom: 1px dotted #000; cursor: help;}
+small {font-size: 85%;}
+strong, th {font-weight: bold;}
+sub, sup {font-size: 75%; line-height: 0; position: relative;}
+sup {top: -0.5em;}
+sub {bottom: -0.25em;}
+pre, code, kbd, samp {font-family: monospace, sans-serif;}
+
+/*-------------------------------------------------------------------------------
+  Clearfix
+-------------------------------------------------------------------------------*/
+
+.cf:before, .cf:after { content:""; display:table; }
+.cf:after { clear:both; }
+.cf { zoom:1; }
+.clear{ clear:both; overflow: hidden; height:0; zoom: 1; }
+
+/*-------------------------------------------------------------------------------
+  List
+-------------------------------------------------------------------------------*/
+
+ul, ul li, ol, ol li { margin:0; padding: 0; list-style-type: none; }
+
+/*-------------------------------------------------------------------------------
+  Center UL
+-------------------------------------------------------------------------------*/
+
+.cul { width:100%; overflow:hidden; position:relative }
+.cul ul { clear:left; float:left; position:relative; left:50%; text-align:center; list-style:none; margin:0; padding:0 }
+.cul ul li { display:block; float:left; position:relative; right:50% }
+.cul ul li a { display:block; margin:0 10px }
+.cul ul li a:hover,.cul ul li a:active,.cul ul li.active a { }
+
+/*-------------------------------------------------------------------------------
+  Horizontal UL
+-------------------------------------------------------------------------------*/
+
+.hul ul{ display:block; float:left; width:auto; }
+.hul ul li{ display:block; float:left; }
+.hul ul li a{ display:block; float:left; }
+.hul ul li a:hover, .hul ul li a:active,.hul ul li.active a{ }
+
+/*-------------------------------------------------------------------------------
+  Form, Input, Fields
+-------------------------------------------------------------------------------*/
+
+input[type=text], input[type=password], input[type=url], input[type=email], input[type=submit], textarea, select, button, fieldset, legend{ font-family: inherit; font-size: 100%; margin:0; padding: 0; border: 0; }
+input, select {vertical-align: middle;}
+pre { white-space: pre; /* CSS2 */ white-space: pre-wrap; /* CSS 2.1 */ white-space: pre-line; /* CSS 3 (and 2.1 as well, actually) */ word-wrap: break-word; /* IE */ }
+input[type="radio"], input.radio { vertical-align: text-bottom; }
+input[type="checkbox"], input.checkbox { vertical-align: bottom; *vertical-align: baseline; }
+.ie6 input {vertical-align: text-bottom;}
+select, input, textarea {font: 99% sans-serif;}
+.clickable, input[type=button], input[type=submit], button, input.button, input.submit{cursor: pointer;} /* hand cursor on clickable elements */
+button, input, select, textarea {margin: 0;} /* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input { line-height: normal; }
+button {width: auto; overflow: visible;} /* make buttons play nice in IE */
+input::-moz-focus-inner{ border:none; }
+textarea{ resize:none; overflow: auto;  vertical-align: top; }
+:focus { outline:0; }
+
+/*-------------------------------------------------------------------------------
+  Table
+-------------------------------------------------------------------------------*/
+
+table {font-size: inherit; font: 100%; border-collapse: separate; border-spacing: 0; }
+table,td,tr,th { margin: 0; padding: 0; font-size: 100%; font: inherit; vertical-align: middle; }
+th {font-weight: normal; vertical-align: bottom;}
+td {font-weight: normal; vertical-align: top;}
+td, td img {vertical-align: top;}
+caption, th, td { text-align: left; font-weight: normal; float:none !important; }
+td, td img { vertical-align: top; }
+
+
